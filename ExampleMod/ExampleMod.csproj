@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DebugType>embedded</DebugType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+        <Description>Example SpiderHeck mod</Description>
+        <Version>1.0.1</Version>
+        <AssemblyName>WeaponSpawnMenu</AssemblyName>
+        <RootNamespace>WeaponSpawnMenu</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GameVersion>1.0.0-r.0</GameVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>..\References\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="BepInEx.Core">
+            <HintPath>..\References\BepInEx.Core.dll</HintPath>
+            </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>..\References\0Harmony.dll</HintPath>
+            </Reference>
+        <Reference Include="BepInEx.Unity">
+            <HintPath>..\References\BepInEx.Unity.dll</HintPath>
+        </Reference>
+        <PackageReference Include="UnityEngine.Modules" Version="2020.3.13" PrivateAssets="all" />
+        <Reference Include="MyScriptAssembly">
+          <HintPath>..\References\MyScriptAssembly.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.InputSystem">
+          <HintPath>..\References\Unity.InputSystem.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Netcode.Runtime">
+          <HintPath>..\References\Unity.Netcode.Runtime.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <Target Name="Copy" AfterTargets="Build" Condition="'$(SpiderHeck)' != ''">
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SpiderHeck)\BepInEx\plugins\" UseSymboliclinksIfPossible="true" />
+    </Target>
+
+</Project>
