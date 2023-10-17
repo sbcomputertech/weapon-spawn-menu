@@ -12,7 +12,7 @@ namespace WeaponSpawnMenu
         private const string ModName = "Weapon Spawner";
         private const string ModAuthor  = "reddust9";
         private const string ModGuid = "com.reddust9.weaponspawner";
-        private const string ModVersion = "1.0.0";
+        private const string ModVersion = "1.0.1";
 
         public static ElementLists lists;
         internal List<GameObject> spawnedFromMenu = new();
@@ -70,8 +70,12 @@ namespace WeaponSpawnMenu
                     var controllers = LobbyController.instance.GetPlayerControllers();
                     // Logger.LogInfo("Controllers length: " + controllers.Length);
 
-                    var health = AccessTools.FieldRefAccess<PlayerController, SpiderHealthSystem>("_spiderHealthSystem")
-                        (controllers.First(c => c.isLocalPlayer));
+                    // var health = AccessTools.FieldRefAccess<PlayerController, SpiderHealthSystem>("_spiderHealthSystem")
+                    //     (controllers.First(c => c.isLocalPlayer));
+
+                    var health = (SpiderHealthSystem) AccessTools.PropertyGetter(typeof(PlayerController), "spiderHealthSystem")
+                        .Invoke(controllers.First(c => c.isLocalPlayer), Array.Empty<object>());
+                    
                     // Logger.LogInfo("Health: " + health);
 
                     var spawnable = new SpawnableWeapon(w, 1);

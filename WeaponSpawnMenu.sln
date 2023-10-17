@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleMod", "ExampleMod\ExampleMod.csproj", "{D00AD040-E353-4148-9458-C2EFC61FC52E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeaponMenu", "WeaponMenu\WeaponMenu.csproj", "{D00AD040-E353-4148-9458-C2EFC61FC52E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
